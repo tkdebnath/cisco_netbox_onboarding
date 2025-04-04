@@ -13,8 +13,10 @@ def check_host(ip):
         'fast_cli': False,
         'username': os.getenv("NETMIKO_USERNAME"),
         'password': os.getenv("NETMIKO_PASSWORD"),
-        'secret': os.getenv("NETMIKO_SECRET"),
     }
+    
+    if os.getenv("NETMIKO_SECRET"):
+        host['secret'] = os.getenv("NETMIKO_SECRET")
     
     try:
         net_connect = ConnectHandler(**host)
@@ -57,7 +59,23 @@ def check_host(ip):
         print(f"{ip}: Conn failed {msg}")
         return {'ip': ip, 'msg': msg}
 
-def new_onboard(ip_list: list):
+def new_onboard(ip_list: list, username: str="", password: str="", secret: str=""):
+    
+    if username:
+        os.environ["NETMIKO_USERNAME"] = username
+    if password:
+        os.environ["NETMIKO_PASSWORD"] = password
+    if secret:
+        os.environ["NETMIKO_SECRET"] = secret
+        
+    if not os.getenv("NETMIKO_USERNAME"):
+        raise BaseException('username is missing')
+    if not os.getenv("NETMIKO_PASSWORD"):
+        raise BaseException('password is missing')
+    if not os.getenv("NETMIKO_SECRET"):
+        pass
+        
+    
     threads = ThreadPool(10)
     results = threads.map(check_host, ip_list)
     threads.close()
