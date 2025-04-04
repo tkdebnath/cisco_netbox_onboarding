@@ -59,7 +59,7 @@ def check_host(ip):
         print(f"{ip}: Conn failed {msg}")
         return {'ip': ip, 'msg': msg}
 
-def new_onboard(ip_list: list, username: str="", password: str="", secret: str=""):
+def new_onboard(ip_list: list, username: str="", password: str="", secret: str="", url: str="", api_key: str=""):
     
     if username:
         os.environ["NETMIKO_USERNAME"] = username
@@ -67,6 +67,11 @@ def new_onboard(ip_list: list, username: str="", password: str="", secret: str="
         os.environ["NETMIKO_PASSWORD"] = password
     if secret:
         os.environ["NETMIKO_SECRET"] = secret
+    
+    if url:
+        os.environ["URL"] = secret
+    if api_key:
+        os.environ["API_KEY"] = api_key
         
     if not os.getenv("NETMIKO_USERNAME"):
         raise BaseException('username is missing')
@@ -74,7 +79,12 @@ def new_onboard(ip_list: list, username: str="", password: str="", secret: str="
         raise BaseException('password is missing')
     if not os.getenv("NETMIKO_SECRET"):
         pass
-        
+    
+    if not os.getenv("URL"):
+        raise BaseException('Netbox URL is missing')
+    if not os.getenv("API_KEY"):
+        raise BaseException('Netbox API_KEY is missing')
+    
     
     threads = ThreadPool(10)
     results = threads.map(check_host, ip_list)
