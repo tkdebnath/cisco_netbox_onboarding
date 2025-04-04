@@ -4,4 +4,3 @@ netmiko
 pynetbox
 requests
 dotenv
-requests
