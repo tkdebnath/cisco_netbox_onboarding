@@ -1,2 +1,2 @@
-# cisco_netbox_onboarding
-Onboard Cisco device to netbox
+# Cisco Netbox Onboarding
+Onboard Cisco Device to Netbox
