@@ -1,0 +1,7 @@
+genie
+pyats
+netmiko
+pynetbox
+requests
+dotenv
+requests
