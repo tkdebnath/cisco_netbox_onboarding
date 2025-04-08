@@ -1,4 +1,3 @@
-from traitlets import Bool
 from .Netbox_Connector import netbox_api
 from .CustomExceptions import InvalidInputError
 
@@ -78,7 +77,7 @@ class IPAM:
         if len(loop_interfaces) > 0:
             self.uuid_interfaces = loop_interfaces
     
-    def update_primary_ip(self, device, primary_ip) -> Bool:
+    def update_primary_ip(self, device, primary_ip) -> bool:
         obj_ip_addr = netbox_api.ipam.ip_addresses.get(address=primary_ip, assigned=True, device=device)
         obj_device = netbox_api.dcim.devices.get(name__ie=device)
         if obj_ip_addr and obj_device:

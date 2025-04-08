@@ -1,4 +1,3 @@
-from ast import Dict
 from .Netbox_Connector import netbox_api
 from .VirtualChassis import VirtualChassis
 from .CustomExceptions import InvalidInputError
@@ -24,7 +23,7 @@ class Device:
         if not self.device_type:
             raise ValueError(f"Device type: {device_type}, is not present")
     
-    def update_db(self) -> Dict:
+    def update_db(self) -> dict:
         if self.role in ["Router", "Access Switch", "Access Point", "Wireless Controller", "Firewall", "Meraki MX", "Meraki MS", "Meraki MR"]:
             obj_device = netbox_api.dcim.devices.get(name__ie=self.device)
             if not obj_device:
