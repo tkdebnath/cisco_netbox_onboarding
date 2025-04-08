@@ -74,7 +74,7 @@ or
 
 ## Usage/Examples
 
-   ```python
+   ``python
    from cisco_netbox_onboarding import new_onboard
    import os
 
@@ -117,4 +117,4 @@ or
                # if success {'ip': ip, 'hostname': hostname, 'msg': 'success'}
 
                # if failed : {'ip': ip, 'msg': msg}
-   ```
+   ``
