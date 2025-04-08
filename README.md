@@ -75,43 +75,36 @@ or
 ## Usage/Examples
 
 #### Importing module
-   ```py
+   ```python
    from cisco_netbox_onboarding import new_onboard
    import os
    ```
 
 #### Execute 
-   ```py
-   if __name__=="__main__":
+   ```python
+   # By default multithreading is enabled with 10 threads 
+   ip_list = []
+   *** Set environment values for below variables ***
 
-      # By default multithreading is enabled with 10 threads 
-
-      ip_list = []
-
-      *** Set environment values for below variables ***
-
-      os.environ["URL"] = "http://<your-netbox>"
-      os.environ["API_KEY"] = "<your-api-token>"
-      os.environ["NETMIKO_USERNAME"] = "username"
-      os.environ["NETMIKO_PASSWORD"] = "password"
-
-      results = new_onboard(ip_list=ip_list)
+   os.environ["URL"] = "http://<your-netbox>"
+   os.environ["API_KEY"] = "<your-api-token>"
+   os.environ["NETMIKO_USERNAME"] = "username"
+   os.environ["NETMIKO_PASSWORD"] = "password"
+   results = new_onboard(ip_list=ip_list)
    ```
-
    ```
-      *** OR pass values with arguments ***
+   *** OR pass values with arguments ***
 
-      URL="http://<your-netbox>"
-      API_KEY="<your-api-token>"
-      NETMIKO_USERNAME="username"
-      NETMIKO_PASSWORD="passord"
+   URL="http://<your-netbox>"
+   API_KEY="<your-api-token>"
+   NETMIKO_USERNAME="username"
+   NETMIKO_PASSWORD="passord"
 
-      results = new_onboard(ip_list=ip_list,
-                           username=NETMIKO_USERNAME,
-                           password=NETMIKO_PASSWORD,
-                           url=URL,
-                           api_key=API_KEY)
-      
+   results = new_onboard(ip_list=ip_list,
+                        username=NETMIKO_USERNAME,
+                        password=NETMIKO_PASSWORD,
+                        url=URL,
+                        api_key=API_KEY)
    ```
    ```
       # Result type is None or List of dictionary
