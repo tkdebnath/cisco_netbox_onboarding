@@ -74,17 +74,21 @@ or
 
 ## Usage/Examples
 
-   ``python
+#### Importing module
+   ```py
    from cisco_netbox_onboarding import new_onboard
    import os
+   ```
 
+#### Execute 
+   ```py
    if __name__=="__main__":
 
       # By default multithreading is enabled with 10 threads 
 
       ip_list = []
 
-      """ Either set environment values for below variables"""
+      *** Set environment values for below variables ***
 
       os.environ["URL"] = "http://<your-netbox>"
       os.environ["API_KEY"] = "<your-api-token>"
@@ -92,9 +96,10 @@ or
       os.environ["NETMIKO_PASSWORD"] = "password"
 
       results = new_onboard(ip_list=ip_list)
+   ```
 
-      
-      """ or pass values with arguments """
+   ```
+      *** OR pass values with arguments ***
 
       URL="http://<your-netbox>"
       API_KEY="<your-api-token>"
@@ -107,7 +112,8 @@ or
                            url=URL,
                            api_key=API_KEY)
       
-
+   ```
+   ```
       # Result type is None or List of dictionary
 
       if results:
@@ -117,4 +123,4 @@ or
                # if success {'ip': ip, 'hostname': hostname, 'msg': 'success'}
 
                # if failed : {'ip': ip, 'msg': msg}
-   ``
+   ```
