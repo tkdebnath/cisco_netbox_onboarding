@@ -64,8 +64,10 @@ or
 
 4. **Configure Environment Variables**:
    ```plaintext
-   NETBOX_URL=http://<your-netbox>/
-   NETBOX_TOKEN=<your-api-token>
+   URL=http://<your-netbox>/
+   API_KEY=<your-api-token>
+   NETMIKO_USERNAME=
+   NETMIKO_PASSWORD=
    ```
 
 
