@@ -92,7 +92,7 @@ or
    os.environ["NETMIKO_PASSWORD"] = "password"
    results = new_onboard(ip_list=ip_list)
    ```
-   ```
+   ```python
    *** OR pass values with arguments ***
 
    URL="http://<your-netbox>"
@@ -106,7 +106,7 @@ or
                         url=URL,
                         api_key=API_KEY)
    ```
-   ```
+   ```python
       # Result type is None or List of dictionary
 
       if results:
