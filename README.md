@@ -67,3 +67,52 @@ or
    NETBOX_URL=http://<your-netbox>/
    NETBOX_TOKEN=<your-api-token>
    ```
+
+
+
+## Usage/Examples
+
+```python
+from cisco_netbox_onboarding import new_onboard
+import os
+
+if __name__=="__main__":
+
+    # By default multithreading is enabled with 10 threads 
+
+    ip_list = []
+
+    """ Either set environment values for below variables"""
+
+    os.environ["URL"] = "http://<your-netbox>"
+    os.environ["API_KEY"] = "<your-api-token>"
+    os.environ["NETMIKO_USERNAME"] = "username"
+    os.environ["NETMIKO_PASSWORD"] = "password"
+
+    results = new_onboard(ip_list=ip_list)
+
+    
+    """ or pass values with arguments """
+
+    URL="http://<your-netbox>"
+    API_KEY="<your-api-token>"
+    NETMIKO_USERNAME="username"
+    NETMIKO_PASSWORD="passord"
+
+    results = new_onboard(ip_list=ip_list,
+                          username=NETMIKO_USERNAME,
+                          password=NETMIKO_PASSWORD,
+                          url=URL,
+                          api_key=API_KEY)
+    
+
+    # Result type is None or List of dictionary
+
+    if results:
+        for result in results:
+            print(result)
+
+            # if success {'ip': ip, 'hostname': hostname, 'msg': 'success'}
+
+            # if failed : {'ip': ip, 'msg': msg}
+```
