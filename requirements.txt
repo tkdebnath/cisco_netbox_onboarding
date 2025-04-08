@@ -1,6 +1,6 @@
-genie
-pyats
-netmiko
-pynetbox
-requests
-dotenv
+requests>=2.32.3
+pynetbox>=7.4.1
+genie>=25.2
+pyats>=25.2
+netmiko>=4.5.0
+dotenv>=0.9.9

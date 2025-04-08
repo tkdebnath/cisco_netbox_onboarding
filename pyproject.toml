@@ -1,0 +1,45 @@
+# pyproject.toml
+
+[build-system]
+# Specifies that setuptools is needed to build the package
+requires = ["setuptools>=61.0"] # Use a recent version
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cisco_netbox_onboarding"
+version = "4.2.0"
+description = "A Package to onboard Cisco devices to Netbox"
+
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+keywords = ["netbox onboarding", "logical interfaces", "physical inetrfaces", "ip assignment", "virtual chassis", "cable connection", "netbox api"]
+authors = [
+    { name = "Tarani Debnath", email = "tkdebnath@aol.com" }
+]
+maintainers = [
+    { name = "Tarani Debnath", email = "tkdebnath@aol.com" }
+]
+classifiers = [ 
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: GNU License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+[project.urls]
+Homepage = "https://github.com/tkdebnath/cisco_netbox_onboarding"
+Repository = "https://github.com/tkdebnath/cisco_netbox_onboarding"
+"Bug Tracker" = "https://github.com/tkdebnath/cisco_netbox_onboarding/issues"
+
+
+# --- Setuptools Specific Configuration ---
+[tool.setuptools]
+[tool.setuptools.packages.find]
+
+# --- Dynamic Metadata ---
+[tool.setuptools.dynamic]
+readme = {file = "README.md", content-type = "text/markdown"}
+dependencies = {file = "requirements.txt"}
