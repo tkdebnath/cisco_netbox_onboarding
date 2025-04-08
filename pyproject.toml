@@ -9,10 +9,11 @@ build-backend = "setuptools.build_meta"
 name = "cisco_netbox_onboarding"
 version = "0.0.4"
 description = "A Package to onboard Cisco devices to Netbox"
+dynamic = ["dependencies", "readme"]
 
 requires-python = ">=3.10"
 license = {file = "LICENSE"}
-keywords = ["netbox onboarding", "logical interfaces", "physical inetrfaces", "ip assignment", "virtual chassis", "cable connection", "netbox api"]
+keywords = ["netbox onboarding", "logical interfaces", "physical interface", "ip assignment", "virtual chassis", "cable connection", "netbox api"]
 authors = [
     { name = "Tarani Debnath", email = "tkdebnath@aol.com" }
 ]
@@ -40,5 +41,5 @@ Repository = "https://github.com/tkdebnath/cisco_netbox_onboarding"
 
 # --- Dynamic Metadata ---
 [tool.setuptools.dynamic]
-readme = "README.md"
-dependencies = "requirements.txt"
+readme = {file = ["README.md"]}
+dependencies = { file = ["requirements.txt"] }
